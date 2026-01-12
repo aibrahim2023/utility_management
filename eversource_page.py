@@ -34,8 +34,8 @@ while True:
 
         eversource_accounts[name] = {
             "account number": account_number,
-            "service_address": service_address,
-            "monthly_bill": monthly_bill
+            "service address": service_address,
+            "monthly bill": monthly_bill
         }
         print("Eversource account created successfully.")
         eversource_account_list.append(name)
@@ -52,7 +52,16 @@ while True:
         if len(eversource_account_list) == 0:
             print("No accounts available to update.")
             continue
-        account_name = input("Enter which existing account you want to update: ")      
+        account_name = input("Enter which existing account you want to update: ")
+
+        #request the user what in the account they should update
+        print("Of all the listed fields for the " + account_name + " account: ")
+        print(eversource_accounts[account_name])
+        modify = input("Select / type in one of the available fields you wish to update in the " + account_name + "account.")
+
+        if modify == "account number":
+            new_account_number = input("Type in the new account number for the " + account_name + "account.")
+
 
     elif select == '5':
         print("Exiting the program.")
